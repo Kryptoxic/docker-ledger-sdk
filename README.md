@@ -17,21 +17,25 @@ A fully pre-configured Ledger SDK build environment.
 To run `make` in your `~/code/my-ledger-app` project dir:
 
 ```
-docker run -v ~/code/my-ledger-app:/code lukechilds/ledger-sdk
+docker run -v ~/code/my-ledger-app:/code cryptoxic/ledger-sdk
 ```
 
 If you're already in your project dir you can just do:
 
 ```
-docker run -v ${PWD}:/code lukechilds/ledger-sdk
+docker run -v ${PWD}:/code cryptoxic/ledger-sdk
 ```
 
 To run an arbitrary command in your project dir:
 
 ```
-docker run -v ${PWD}:/code lukechilds/ledger-sdk 'make clean'
+docker run -v ${PWD}:/code cryptoxic/ledger-sdk 'make clean'
 ```
 
 ## License
 
 MIT © Luke Childs
+
+## Acknowledgements
+
+This repo was forked from lukechilds' github and updated by me. I will try to keep the SDK, Clang and GCC up to date as much as I can.
