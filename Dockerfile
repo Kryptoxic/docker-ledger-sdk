@@ -16,9 +16,9 @@ RUN echo "Create install directories" && \
   mkdir ${BOLOS_ENV} ${BOLOS_SDK}
 
 RUN echo "Install custom gcc"
-RUN curl -L https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/8-2019q3/RC1.1/gcc-arm-none-eabi-8-2019-q3-update-linux.tar.bz2 --output /tmp/gcc.tar.bz2
+RUN curl -L https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/9-2019q4/RC2.1/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2 --output /tmp/gcc.tar.bz2
 RUN tar -xvf /tmp/gcc.tar.bz2 -C ${BOLOS_ENV}
-RUN mv ${BOLOS_ENV}/gcc-arm-none-eabi-8-2019-q3-update ${BOLOS_ENV}/gcc-arm-none-eabi-5_3-2016q1
+RUN mv ${BOLOS_ENV}/gcc-arm-none-eabi-9-2019-q4-major ${BOLOS_ENV}/gcc-arm-none-eabi-5_3-2016q1
 RUN rm /tmp/gcc.tar.bz2
 
 RUN echo "Install custom clang"
