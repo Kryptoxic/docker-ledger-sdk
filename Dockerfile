@@ -15,6 +15,12 @@ RUN apt-get install -y --no-install-recommends libc6-dev-i386 python python3 pyt
 RUN echo "Create install directories" && \
   mkdir ${BOLOS_ENV} ${BOLOS_SDK}
 
+RUN echo "Install ledgerblue and btchip" && \
+  apt install -y pip3-python pip-python && \
+  pip install setuptools && \
+  pip install ledgerblue btchip-python && \
+  pip3 install ledgerblue btchip-python
+
 RUN echo "Install custom gcc"
 RUN curl -L https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/9-2019q4/RC2.1/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2 --output /tmp/gcc.tar.bz2
 RUN tar -xvf /tmp/gcc.tar.bz2 -C ${BOLOS_ENV}
