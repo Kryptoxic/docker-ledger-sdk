@@ -16,7 +16,7 @@ RUN echo "Create install directories" && \
   mkdir ${BOLOS_ENV} ${BOLOS_SDK}
 
 RUN echo "Install ledgerblue and btchip" && \
-  apt install -y pip3-python pip-python && \
+  apt install -y python-pip python3-pip && \
   pip install setuptools && \
   pip install ledgerblue btchip-python && \
   pip3 install ledgerblue btchip-python
