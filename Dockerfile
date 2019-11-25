@@ -35,7 +35,7 @@ RUN echo "Symlink libz3" && \
 
 RUN echo "Install Ledger Nano S SDK" && \
   git clone https://github.com/LedgerHQ/nanos-secure-sdk.git ${BOLOS_SDK} && \
-  cd ${BOLOS_SDK} && git checkout tags/nanos-1553
+  cd ${BOLOS_SDK} && git checkout tags/nanos-160
 
 COPY ./bin/init /usr/local/bin/init
 
