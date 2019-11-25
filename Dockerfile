@@ -15,6 +15,14 @@ RUN apt-get install -y --no-install-recommends libc6-dev-i386 python python3 pyt
 RUN echo "Create install directories" && \
   mkdir ${BOLOS_ENV} ${BOLOS_SDK}
 
+RUN echo "Specify python to use"
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3.5 \
+    python3-pip \
+    && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN echo "Install ledgerblue and btchip" && \
   apt install -y python-pip python3-pip && \
   pip install setuptools && \
