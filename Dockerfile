@@ -10,13 +10,13 @@ ENV BOLOS_SDK /opt/bolos-sdk
 
 RUN echo "Update base image" && \
   apt update && \
-  apt install -y --no-install-recommends libc6-dev-i386 python python3 python-pil curl ca-certificates bzip2 xz-utils git make
+  apt install -y --no-install-recommends libc6-dev python python3 python-pil curl ca-certificates bzip2 xz-utils git make
 
 RUN echo "Create install directories" && \
   mkdir ${BOLOS_ENV} ${BOLOS_SDK}
 
 RUN echo "Install custom gcc" && \
-  curl -L https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/9-2019q4/RC2.1/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2 --output /tmp/gcc.tar.bz2 && \
+  curl -L https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/9-2019q4/RC2.1/gcc-arm-none-eabi-9-2019-q4-major-aarch64-linux.tar.bz2 --output /tmp/gcc.tar.bz2 && \
   tar -xvf /tmp/gcc.tar.bz2 -C ${BOLOS_ENV} && \
   mv ${BOLOS_ENV}/gcc-arm-none-eabi-9-2019-q4-major ${BOLOS_ENV}/gcc-arm-none-eabi-5_3-2016q1 && \
   rm /tmp/gcc.tar.bz2
