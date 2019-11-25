@@ -38,7 +38,7 @@ RUN echo "Install Ledger Nano S SDK" && \
   cd ${BOLOS_SDK} && git checkout tags/nanos-160
 
 RUN echo "Install python modules" && \
-  apt install python-pip python3-pip && \
+  apt install python-pip python3-pip -y && \
   pip install ledgerblue btchip-python && \
   pip3 install ledgerblue btchip-python
 
