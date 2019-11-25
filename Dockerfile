@@ -37,6 +37,11 @@ RUN echo "Install Ledger Nano S SDK" && \
   git clone https://github.com/LedgerHQ/nanos-secure-sdk.git ${BOLOS_SDK} && \
   cd ${BOLOS_SDK} && git checkout tags/nanos-160
 
+RUN echo "Install python modules" && \
+  apt install python-pip python3-pip && \
+  pip install ledgerblue btchip-python && \
+  pip3 install ledgerblue btchip-python
+
 COPY ./bin/init /usr/local/bin/init
 
 ENTRYPOINT ["init"]
