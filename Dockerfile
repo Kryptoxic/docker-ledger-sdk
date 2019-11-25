@@ -8,26 +8,12 @@ WORKDIR /code
 ENV BOLOS_ENV /opt/bolos-env
 ENV BOLOS_SDK /opt/bolos-sdk
 
-RUN apt-get update
+RUN echo "Update base image"
+RUN apt update && apt install -y --no-install-recommends libc6-dev-i386 python python-pil curl ca-certificates bzip2 xz-utils git make python3 python3-pip
 
-RUN apt-get install -y --no-install-recommends libc6-dev-i386 python python-pil curl ca-certificates bzip2 xz-utils git make
+RUN echo "Create install directories" && mkdir ${BOLOS_ENV} ${BOLOS_SDK}
 
-RUN echo "Create install directories" && \
-  mkdir ${BOLOS_ENV} ${BOLOS_SDK}
-
-RUN echo "Specify python to use"
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    python3.5 \
-    python3-pip \
-    && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-RUN echo "Install ledgerblue and btchip" && \
-  apt install -y python-pip python3-pip && \
-  pip install setuptools && \
-  pip install ledgerblue btchip-python && \
-  pip3 install ledgerblue btchip-python
+RUN echo "Install ledgerblue and btchip" && apt install -y python-pip python3-pip && pip install setuptools && pip install ledgerblue btchip-python && pip3 install ledgerblue btchip-python
 
 RUN echo "Install custom gcc"
 RUN curl -L https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/9-2019q4/RC2.1/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2 --output /tmp/gcc.tar.bz2
