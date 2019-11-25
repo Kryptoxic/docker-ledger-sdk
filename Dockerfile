@@ -35,7 +35,7 @@ RUN ln -s /usr/lib/x86_64-linux-gnu/libz3.so.4 /usr/lib/x86_64-linux-gnu/libz3.s
 
 RUN echo "Install Ledger Nano S SDK"
 RUN git clone https://github.com/LedgerHQ/nanos-secure-sdk.git ${BOLOS_SDK}
-RUN cd ${BOLOS_SDK} && git checkout tags/nanos-160
+RUN cd ${BOLOS_SDK} && git checkout tags/nanos-1553
 
 COPY ./bin/init /usr/local/bin/init
 
