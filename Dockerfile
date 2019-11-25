@@ -25,7 +25,7 @@ RUN echo "Install gcc" && \
   apt install gcc-arm-none-eabi -y
 
 RUN echo "Install custom clang" && \
-  curl -L https://releases.llvm.org/9.0.0/clang+llvm-9.0.0-x86_64-pc-linux-gnu.tar.xz --output /tmp/clang.tar.xz && \
+  curl -L https://releases.llvm.org/9.0.0/clang+llvm-9.0.0-armv7a-linux-gnueabihf.tar.xz --output /tmp/clang.tar.xz && \
   tar -xvf /tmp/clang.tar.xz -C ${BOLOS_ENV} && \
   mv ${BOLOS_ENV}/clang+llvm-9.0.0-x86_64-pc-linux-gnu ${BOLOS_ENV}/clang-arm-fropi && \
   rm /tmp/clang.tar.xz
