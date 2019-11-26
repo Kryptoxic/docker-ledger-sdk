@@ -31,7 +31,7 @@ RUN echo "Install libz3" && \
   apt install libz3-4 libz3-dev -y
 
 RUN echo "Symlink libz3" && \
-  ln -s /usr/lib/aarch64/libz3.so.4 /usr/lib/aarch64/libz3.so.4.8
+  ln -s /usr/lib/aarch64-linux-gnu/libz3.so.4 /usr/lib/aarch64-linux-gnu/libz3.so.4.8
 
 RUN echo "Install Ledger Nano S SDK" && \
   git clone https://github.com/LedgerHQ/nanos-secure-sdk.git ${BOLOS_SDK} && \
