@@ -9,6 +9,7 @@ ENV BOLOS_SDK /opt/bolos-sdk
 
 RUN echo "Update base image and install dependencies" && \
   apt update && \
+  apt upgrade -y && \
   apt install -y build-essential git make clang gcc-arm-none-eabi gcc-multilib g++-multilib
 
 RUN echo "Create SDK directory" && \
