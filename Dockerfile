@@ -9,7 +9,7 @@ ENV BOLOS_SDK /opt/bolos-sdk
 
 RUN echo "Update base image and install dependencies" && \
   apt update && \
-  apt install -y --no-install-recommends libc6-dev-i386 python3 python-pil curl ca-certificates bzip2 xz-utils git make clang gcc-arm-none-eabi gcc-multilib g++-multilib
+  apt install -y build-essential git make clang gcc-arm-none-eabi gcc-multilib g++-multilib
 
 RUN echo "Create SDK directory" && \
   mkdir ${BOLOS_SDK}
