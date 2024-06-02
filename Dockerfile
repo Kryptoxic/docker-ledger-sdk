@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 LABEL maintainer1="Luke Childs <lukechilds123@gmail.com>"
 LABEL maintainer2="Ryan Chew  <ryanchew96@gmail.com>"
 
@@ -15,7 +15,7 @@ RUN echo "Create SDK directory" && \
   mkdir ${BOLOS_SDK}
 
 RUN echo "Install Ledger Nano S SDK" && \
-  git clone https://github.com/LedgerHQ/nanos-secure-sdk.git ${BOLOS_SDK} && \
+  git clone --recursive https://github.com/LedgerHQ/ledger-secure-sdk/.git ${BOLOS_SDK} && \
   cd ${BOLOS_SDK} && git checkout tags/nanos-160
 
 RUN echo "Install python modules" && \
